@@ -100,7 +100,7 @@ class LinkedList:
         if self.find_index(value) == 'Not on the list':
             print('Not on the list')
         else:
-            s.remove_node(self.find_index(value))
+            self.remove_node(self.find_index(value))
 
 
 
