@@ -20,9 +20,6 @@ class LinkedList:
         self.last = None
 
 
-    def del_list(self):
-        return self.head is None
-
     def add_to_end(self, value):
         new_node = Node(value)
         if self.head is None:
