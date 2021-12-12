@@ -117,7 +117,31 @@ class LinkedList:
         for x in self.values():
             print(x, end=' ')
         print()
-
+       
+    def add_after_node(self, index, value):   # добавить значение после узла с данным индексом
+        if index > self.last.index:
+            raise IndexError("Index out of range")
+        elif index == self.last.index:
+            self.add_to_end(value)
+        elif index == -1:                    # если надо добавить первым, то индекс=-1, я об этом заранее не подумала))
+            new_node = Node(value)
+            new_node.nxt = self.head
+            self.head = new_node
+            node = self.head.nxt
+            for i in range(self.last.index + 1):
+                node.index += 1
+                node = node.nxt
+        else:
+            node = self.head
+            for i in range(index):
+                node = node.nxt
+            new_node = Node(value)
+            new_node.index = index
+            new_node.nxt = node.nxt
+            node.nxt = new_node
+            for j in range(index, self.last.index + 1):
+                node = node.nxt
+                node.index += 1
 
 def decor(func):
     def wrapped():
